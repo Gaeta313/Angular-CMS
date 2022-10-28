@@ -1,0 +1,44 @@
+<div class="toolbar text-start mb-4">
+  <ng-container *ngIf="type === 'new'">
+    <div class="flex-box d-flex justify-content-around">
+      <button
+        class="btn btn-primary"
+        (click)="this.router.navigate(['NewArticle/0'])"
+      >
+        New Article
+      </button>
+      <div class="w-50">
+        <label for="selected">Filter by categories</label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          id="select"
+          name="category"
+          (change)="onSelect($event)"
+        >
+          <option selected value="All">All</option>
+          <option
+            *ngFor="let category of categories$ | async"
+            [value]="category.title"
+          >
+            {{ category.title }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type === 'edit'">
+    <button
+      class="btn btn-primary me-3"
+      (click)="this.router.navigate(['NewArticle/' + articleId])"
+    >
+      Edit Article
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="onDelete()"
+    >
+      Delete Article
+    </button>
+  </ng-container>
+</div>

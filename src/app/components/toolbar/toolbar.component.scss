@@ -1,0 +1,29 @@
+
+.toolbar{
+  background-color: var(--secondary-color);
+  box-shadow: 0px 0px 5px 3px var(--primary-color);
+  padding: 10px;
+}
+
+.btn-primary{
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
+.btn-primary:active{
+  background-color: #a5164f !important ;
+}
+
+.flex-box{
+  align-items: center;
+}
+
+#select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 1px var(--primary-color) !important;
+}
+
+#select {
+  background-color: var(--secondary-color) !important;
+  color: var(---text-color) !important;
+}

@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+:root {
+  --primary-color: #c2185b;
+  --secondary-color: #424242;
+  --dark-color: rgb(48, 48, 48);
+  ---text-color: white;
+}
+
+.App{
+  text-align: center;
+  background-color: var(--dark-color);
+  min-height: 100vh;
+  color: var(---text-color);
+}
+
+
+app-dashboard h1 {
+  background-color: var(--primary-color);
+}
+
+
+app-dashboard .content {
+  border-right: 2px solid var(--primary-color);
+ min-height: 100%;
+  background-color: var(--secondary-color);
+}
+
+app-dashboard .sticky{
+  position: sticky;
+  top: 0;
+}
+
+app-articles .list-group-item{
+  background-color: var(--secondary-color) !important;
+  color: var(---text-color);
+  margin-bottom: 10px;
+}
+app-articles .list-group-item:hover{
+  cursor: pointer;
+}
+
+app-articles .container{
+  min-height: 100vh;
+}
+
+
+
+
+

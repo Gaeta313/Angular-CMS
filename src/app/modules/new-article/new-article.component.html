@@ -1,0 +1,86 @@
+<h1 class="mt-3">{{ title }}</h1>
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        [(ngModel)]="form.form.value.title"
+        required
+        pattern="(\s*[^\s]+\s*)+"
+      />
+    </div>
+    <label for="select" class="form-label">Select a categories</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      id="select"
+      name="category"
+      [(ngModel)]="form.form.value.category"
+      required
+    >
+      <option
+        *ngFor="let category of categories$ | async"
+        [value]="category.title"
+      >
+        {{ category.title }}
+      </option>
+    </select>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        name="author"
+        [(ngModel)]="form.form.value.author"
+        required
+        pattern="(\s*[^\s]+\s*)+"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="file" class="form-label">Add Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="file"
+        name="image"
+        ngModel
+        (change)="onChange($event)"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="textArea" class="form-label">Content</label>
+      <textarea
+        class="form-control"
+        id="textArea"
+        rows="3"
+        name="content"
+        [(ngModel)]="form.form.value.content"
+        required
+      ></textarea>
+    </div>
+    <div class="mb-3 d-flex justify-content-around">
+      <input
+        type="submit"
+        class="btn btn-primary"
+        id="file"
+        value="Post"
+        [disabled]="!form.valid"
+      />
+      <button type="button" class="btn btn-primary" (click)="open()">
+        Preview
+      </button>
+      <button *ngIf="id === '0'" type="button" class="btn btn-primary" (click)="router.navigate(['/Articles'])">
+        Close
+      </button>
+      <button *ngIf="id !== '0'" type="button" class="btn btn-primary" (click)="router.navigate(['/SingleArticle/'+id])">
+        Close
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+
+<div class="container mt-5">
+  <app-toolbar type="edit" [articleId]="(singleArticle$|async)?.id"></app-toolbar>
+  <h1 >{{(singleArticle$|async)?.title}}</h1>
+  <h4>- {{(singleArticle$|async)?.category}} -</h4>
+  <h6 class="mb-3">di - {{(singleArticle$|async)?.author}}, pubblicato il: {{(singleArticle$|async)?.date|date: 'dd/MM/yy'}}</h6>
+  <div class="w-50 m-auto mb-3">
+    <img [src]="(singleArticle$|async)?.image" width="100%" alt="">
+  </div>
+
+  <p>{{(singleArticle$|async)?.content}}</p>
+
+</div>

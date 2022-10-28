@@ -1,0 +1,14 @@
+.content{
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+
+.btn-primary{
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
+.btn-primary:active{
+  background-color: #a5164f !important ;
+}
