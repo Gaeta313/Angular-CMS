@@ -7,16 +7,19 @@ import { ArticleService } from 'src/app/services/article.service';
 @Component({
   selector: 'app-single-article',
   templateUrl: './single-article.component.html',
-  styleUrls: ['./single-article.component.scss']
+  styleUrls: ['./single-article.component.scss'],
 })
 export class SingleArticleComponent implements OnInit {
   singleArticle$!: Observable<Article>;
-  constructor(private articlesSrv: ArticleService, private route: ActivatedRoute) { }
+  constructor(
+    private articlesSrv: ArticleService,
+    private route: ActivatedRoute
+  ) {}
 
+  //ottiene i dati dell'articolo dal server
   ngOnInit(): void {
-    this.route.params.subscribe(params =>{
-      this.singleArticle$ = this.articlesSrv.getArticleById(params['id'])
-    })
+    this.route.params.subscribe((params) => {
+      this.singleArticle$ = this.articlesSrv.getArticleById(params['id']);
+    });
   }
-
 }

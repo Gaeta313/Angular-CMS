@@ -7,22 +7,23 @@ import { ArticleService } from 'src/app/services/article.service';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.scss']
+  styleUrls: ['./articles.component.scss'],
 })
 export class ArticlesComponent implements OnInit {
-  articles$!: Observable<Article[]>
+  articles$!: Observable<Article[]>;
 
   post = {
-    title:'nuovo post',
-  }
-  constructor(private articleSrv: ArticleService, public router: Router) { }
+    title: 'nuovo post',
+  };
+  constructor(private articleSrv: ArticleService, public router: Router) {}
 
   ngOnInit(): void {
-  this.articles$ =  this.articleSrv.getAll();
+    this.articles$ = this.articleSrv.getAll();
   }
 
- onSelected(category:string){
-  this.articles$ = this.articleSrv.getAllFilteredByCategory(category);
- }
-
+  // tramite evento del componente figlio ToolbarComponent, il componente sa che l'utente vuole filtrare la ricerca
+  // ed invoca il sevice per farlo
+  onSelected(category: string) {
+    this.articles$ = this.articleSrv.getAllFilteredByCategory(category);
+  }
 }
